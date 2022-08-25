@@ -1,2 +1,8 @@
 composer install
 php bin/console doctrine:database:create
+
+# Creating the Database Tables/Schema
+php bin/console doctrine:migrations:migrate
+
+# Persisting Objects to the Database
+php bin/console make:controller ProductController
