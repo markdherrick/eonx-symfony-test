@@ -14,3 +14,5 @@ DATABASE_URL="mysql://root:@127.0.0.1:3306/!DatabaseName!?serverVersion=5.7"
 # Run the following commands
 To install dependencies run the command below:
 composer install
+
+
