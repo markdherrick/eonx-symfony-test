@@ -26,18 +26,11 @@ class CustomerController extends AbstractController
         return $this->json(['data' => $response]);
     }
 
-    #[Route('/customer/{id}', name: 'customer_by_id', defaults: ['id' => ''], methods: 'GET')]
+    #[Route('/customers/{id}', name: 'customer_by_id', defaults: ['id' => ''], methods: 'GET')]
     public function getCustomerById($id): JsonResponse
     {
         $response = $this->customerService->getCustomerById($id);
         return $this->json(['data' => $response]);
-    }
-
-    #[Route('/customer', name: 'create_customer', methods: 'POST')]
-    public function createCustomer(Request $request): Response
-    {
-        $customer = $this->customerService->create($request);
-        return new Response($customer);
     }
 
     #[Route('/generate-customers', name: 'generate_customers', methods: 'GET')]
@@ -46,4 +39,11 @@ class CustomerController extends AbstractController
         $response = $this->customerService->generateRandomCustomersFromExternalAPI();
         return new Response(json_encode($response));
     }
+
+    // #[Route('/customer', name: 'create_customer', methods: 'POST')]
+    // public function createCustomer(Request $request): Response
+    // {
+    //     $customer = $this->customerService->create($request);
+    //     return new Response($customer);
+    // }
 }

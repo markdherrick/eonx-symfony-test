@@ -35,23 +35,6 @@ class CustomerRepository extends ServiceEntityRepository
         }
     }
 
-    public function remove(Customer $entity, bool $flush = false): void
-    {
-        $this->getEntityManager()->remove($entity);
-
-        if ($flush) {
-            $this->getEntityManager()->flush();
-        }
-    }
-
-    public function updateCustomer(Customer $entity, bool $flush = false): void{
-        $this->getEntityManager()->persist($entity);
-
-        if ($flush) {
-            $this->getEntityManager()->flush();
-        }
-    }
-
     public function findOneBySomeField($value): ?Customer
     {
         return $this->createQueryBuilder('c')
